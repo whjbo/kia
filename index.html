@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>KN</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="clock">
+        <div class="today" id="today"></div>
+        <div class="time" id="time"></div>
+    </div>
+    <div id="expect1"></div>
+    <div id="expect2"></div>
+
+    <table class="table_one" border="0px">
+        <tr>
+            <td rowspan="2">
+                <button onclick="delete_row()">삭제</button>
+            </td>
+            <td>
+                <form>
+                    <input id="m" type=button value="-" onClick="javascript:this.form.count.value--;">
+                    <input type="number" id="count" placeholder="서열수량" value="35" size="1">
+                    <input id="p" type=button value="+" onClick="javascript:this.form.count.value++;">
+                </form>
+            </td>
+            <td rowspan="2">
+                <button onclick="add_row()">투입</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form>
+                    <input id="m" type=button value="-" onClick="javascript:this.form.re.value--;">
+                    <input type="number" id="re" placeholder="남은수량" value="0">
+                    <input id="p" type=button value="+" onClick="javascript:this.form.re.value++;">
+                </form>
+            </td>
+        </tr>
+        
+    </table>
+    <table class="table_two" border="1px">
+        <td>회차</td>
+        <td>수량</td>
+        <td>남은 수량</td>
+        <td>다음 투입</td>
+        <td>서열 시작</td>
+        <td>보호커버</td>
+        <tbody id="mytable">
+
+        </tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
