@@ -25,7 +25,7 @@ function getTime(){
     minute = minute < 10 ? `0${minute}` : minute
     second = second < 10 ? `0${second}` : second
 
-    todayDiv.textContent = `${year}-${month}-${date}-${day}`
+    todayDiv.textContent = `${year}-${month}-${date}-${day}a`
     timeDiv.textContent = `${hour}:${minute}:${second}`
 }
 
@@ -93,7 +93,7 @@ function add_row(){
         var date2 = new Date(sttYear, sttMonth, sttDay, sttHours, sttMinutes);
         var elapsedMSec = date2.getTime() - date1.getTime(); 
         var elapsedMin = elapsedMSec / 1000 / 60;
-        last = (elapsedMin / (9 - i + 1)) / 1.25;
+        last = ((elapsedMin - 60) / (9 - i + 1)) / 1.25;
                 
         const element2 = document.getElementById('expect2');
         element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개";
@@ -105,7 +105,7 @@ function add_row(){
         var date2 = new Date(sttYear, sttMonth, sttDay, sttHours, sttMinutes);
         var elapsedMSec = date2.getTime() - date1.getTime(); 
         var elapsedMin = elapsedMSec / 1000 / 60;
-        last = (elapsedMin / (9 - i + 1)) / 1.25;
+        last = ((elapsedMin - 60) / (9 - i + 1)) / 1.25;
         
 
         const element2 = document.getElementById('expect2');
