@@ -25,7 +25,7 @@ function getTime(){
     minute = minute < 10 ? `0${minute}` : minute
     second = second < 10 ? `0${second}` : second
 
-    todayDiv.textContent = `${year}-${month}-${date}-${day}a`
+    todayDiv.textContent = `${year}-${month}-${date}-${day}`
     timeDiv.textContent = `${hour}:${minute}:${second}`
 }
 
