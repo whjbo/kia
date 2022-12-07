@@ -105,7 +105,7 @@ function add_row(){
         }         
         else{
             last = ((elapsedMin - 60) / (9 - i + 1)) / 1.25;
-            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개";
+            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개#";
         }
 
     }
@@ -133,7 +133,7 @@ function add_row(){
         }         
         else{
             last = ((elapsedMin - 60) / (9 - i + 1)) / 1.25;
-            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개";
+            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개#";
         }
 
     }
