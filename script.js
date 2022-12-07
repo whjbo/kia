@@ -65,9 +65,10 @@ function add_row(){
         cell5.innerHTML = "V"
     }
 
-    var now1 = new Date(new Date().setMinutes(new Date().getMinutes()));//현재시간
+    var now1 = new Date(new Date().setMinutes(new Date().getMinutes()));
     var now2 = new Date(new Date().setMinutes(new Date().getMinutes() + result));
     var nhour = now1.getHours();
+    var nminutes = now1.getMinutes();
     var year = now2.getFullYear();
     var month = now2.getMonth()+1;
     var day = now2.getDate();
@@ -79,12 +80,6 @@ function add_row(){
     var sttYear = sttDt[0];
     var sttMonth = sttDt[1];
     var sttDay = sttDt[2];
-    var sttHours = 24;
-    var sttMinutes = 07;
-    var date1 = new Date(year, month, day, hours, minutes);
-    var date2 = new Date(sttYear, sttMonth, sttDay, sttHours, sttMinutes);
-    var elapsedMSec = date2.getTime() - date1.getTime(); 
-    var elapsedMin = elapsedMSec / 1000 / 60;
 
     if(nhour < 16){
         var sttHours = 15;
@@ -93,23 +88,54 @@ function add_row(){
         var date2 = new Date(sttYear, sttMonth, sttDay, sttHours, sttMinutes);
         var elapsedMSec = date2.getTime() - date1.getTime(); 
         var elapsedMin = elapsedMSec / 1000 / 60;
-        last = ((elapsedMin - 60) / (9 - i + 1)) / 1.25;
-                
+
         const element2 = document.getElementById('expect2');
-        element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개";
+        
+        if((hours >= 09) && (minutes >= 00)){
+            last = ((elapsedMin - 50) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개 0900";
+        }
+        else if((hours >= 11) && (minutes >= 10)){
+            last = ((elapsedMin - 10) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개 1110";
+        }    
+        else if((hours >= 13) && (minutes >= 50)){
+            last = ((elapsedMin) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개 1350";
+        }         
+        else{
+            last = ((elapsedMin - 60) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개";
+        }
+
     }
     else{
         var sttHours = 24;
         var sttMinutes = 07;
-        var date1 = new Date(year, month, day, hours, minutes);
-        var date2 = new Date(sttYear, sttMonth, sttDay, sttHours, sttMinutes);
+        var date1 = new Date(year, month, day, hours, minutes);//다음투입 시간
+        var date2 = new Date(sttYear, sttMonth, sttDay, sttHours, sttMinutes);//9번째 투입시간
         var elapsedMSec = date2.getTime() - date1.getTime(); 
         var elapsedMin = elapsedMSec / 1000 / 60;
-        last = ((elapsedMin - 60) / (9 - i + 1)) / 1.25;
-        
 
         const element2 = document.getElementById('expect2');
-        element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개";
+        
+        if((hours >= 17) && (minutes >= 50)){
+            last = ((elapsedMin - 50) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개 1750";
+        }
+        else if((hours >= 20) && (minutes >= 00)){
+            last = ((elapsedMin - 10) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개 2000";
+        }    
+        else if((hours >= 22) && (minutes >= 40)){
+            last = ((elapsedMin) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개 2240";
+        }         
+        else{
+            last = ((elapsedMin - 60) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개";
+        }
+
     }
 
     document.getElementById("count").value = 35;
