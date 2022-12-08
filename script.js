@@ -91,21 +91,21 @@ function add_row(){
 
         const element2 = document.getElementById('expect2');
         
-        if((hours >= 09) && (minutes >= 00)){
-            last = ((elapsedMin - 50) / (9 - i + 1)) / 1.25;
-            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개 0900";
+        if((hours < 09) && (minutes >= 00)){
+            last = ((elapsedMin - 60) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개";
         }
-        else if((hours >= 11) && (minutes >= 10)){
-            last = ((elapsedMin - 10) / (9 - i + 1)) / 1.25;
-            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개 1110";
+        else if((hours < 11) && (minutes >= 10)){
+            last = ((elapsedMin - 50) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개 09:00";
         }    
-        else if((hours >= 13) && (minutes >= 50)){
-            last = ((elapsedMin) / (9 - i + 1)) / 1.25;
-            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개 1350";
+        else if((hours < 13) && (minutes >= 50)){
+            last = ((elapsedMin - 10) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개 11:10";
         }         
         else{
-            last = ((elapsedMin - 60) / (9 - i + 1)) / 1.25;
-            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개#";
+            last = ((elapsedMin) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(주간) "+ i +"회차 수량: " + Math.round(last) +" 개 13:50";
         }
 
     }
@@ -119,21 +119,21 @@ function add_row(){
 
         const element2 = document.getElementById('expect2');
         
-        if((hours >= 17) && (minutes >= 50)){
-            last = ((elapsedMin - 50) / (9 - i + 1)) / 1.25;
-            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개 1750";
+        if((hours < 17) && (minutes >= 50)){
+            last = ((elapsedMin - 60) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개";
         }
-        else if((hours >= 20) && (minutes >= 00)){
-            last = ((elapsedMin - 10) / (9 - i + 1)) / 1.25;
-            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개 2000";
+        else if((hours < 20) && (minutes >= 00)){
+            last = ((elapsedMin - 50) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개 17:50";
         }    
-        else if((hours >= 22) && (minutes >= 40)){
-            last = ((elapsedMin) / (9 - i + 1)) / 1.25;
-            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개 2240";
+        else if((hours < 22) && (minutes >= 40)){
+            last = ((elapsedMin - 10) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개 20:00";
         }         
         else{
-            last = ((elapsedMin - 60) / (9 - i + 1)) / 1.25;
-            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개#";
+            last = ((elapsedMin) / (9 - i + 1)) / 1.25;
+            element2.innerHTML = "(야간) "+ i +"회차 수량: " + Math.round(last) +" 개 22:40";
         }
 
     }
